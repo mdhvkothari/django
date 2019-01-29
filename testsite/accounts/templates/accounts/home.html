@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <title>Home</title>
+  <link rel="stylesheet" href="{% static 'accounts/home.css' %}">
+{% endblock %}
+
+
+{% block body %}
+  <div class="container">
+    <br>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">TubeWiki</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/"><span class="glyphicon glyphicon-off"></span></a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <h1>Entertainment Club</h1><br>
+    {% for i in user_data %}
+      <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top" src="{{ i.image.url }}" alt="Card image cap" width="150" height="150">
+        <div class="card-body">
+          <h2 class="card-title">{{ i.name }}</h2>
+          <p class="card-text">{{ i.snippet }}......</p>
+          <a href="{% url 'accounts:detail' slug=i.id %}" class="btn btn-primary">Know More</a>
+          <hr>
+
+        </div>
+        </div>
+      </div>
+      {% endfor %}
+      <center><h4><a href="/allchannel/entertainment">SEE MORE</a></h4></center>
+      <h1>Motivational club</h1><br>
+      {% for j in moti_data %}
+
+        <div class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top" src="{{ j.image.url }}" alt="Card image cap" width="150" height="150">
+          <div class="card-body">
+            <h2 class="card-title">{{ j.name }}</h2>
+            <p class="card-text">{{ j.snippet }}......</p>
+            <a href="{% url 'accounts:moti' slug=j.id %}" class="btn btn-primary">Know More</a>
+            <hr>
+          </div>
+          </div>
+        </div>
+
+        {% endfor %}
+        <center><h4><a href="/allchannel/motivational">SEE MORE</a></h4></center>
+
+        <h1>Techonology Club</h1><br>
+        {% for k in tech_data %}
+
+          <div class="col-sm-4">
+          <div class="card">
+            <img class="card-img-top" src="{{ k.image.url }}" alt="Card image cap" width="150" height="150">
+            <div class="card-body">
+              <h2 class="card-title">{{ k.name }}</h2>
+              <p class="card-text">{{ k.snippet }}......</p>
+              <a href="{% url 'accounts:tech' slug=k.id %}" class="btn btn-primary">Know More</a>
+              <hr>
+            </div>
+            </div>
+          </div>
+
+          {% endfor %}
+          <center><h4><a href="/allchannel/tech">SEE MORE</a></h4></center>
+        </div>
+
+{% endblock %}

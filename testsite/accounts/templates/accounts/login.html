@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block head %}
+  <title>LogIn</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+  <br>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">TubeWiki</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/account/register">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+  <center>
+  <h1>Welcome</h1>
+  <h3><p>You can log in here!!</p></h3>
+  <h2>Login</h2>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn-btn-default" type="submit">LogIn</button>
+  </form>
+
+</div>
+</center>
+{% endblock %}
