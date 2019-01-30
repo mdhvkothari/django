@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'allchannel',
-    'widget_tweaks',
     'crispy_forms',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
