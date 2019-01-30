@@ -5,8 +5,9 @@
   <title>Registraion</title>
   <style>
       body{
-
+      background:   #2e3830;
       font-family:  Ubuntu;
+      color:white;
     }
   </style>
 {% endblock %}
@@ -17,17 +18,17 @@
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">TubeWiki</a>
+        <a class="navbar-brand" >TubeWiki</a>
       </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/account/login">logIn</a></li>
+      </ul>
     </div>
   </nav>
   <div class="row">
-    <div class="col-sm-6">
-      <h1>Find the Indian  popular channels</h1><hr>
-        <center><img src="{% static 'accounts/logo.png' %}" width="450" height="350" />
-          </center>
+    <div class="col-sm-4">
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <h1>Register Here !!</h1><hr>
       <form method="post">
         {% csrf_token %}
@@ -35,7 +36,10 @@
         {{ form|crispy }}
         <button type="submit" class="btn btn-success">Submit</button>
         </form>
+
         <hr>
+    <div class="col-sm-4">
+    </div>
     </div>
     </div>
 

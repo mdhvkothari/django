@@ -4,10 +4,10 @@
   <title>LogIn</title>
   <style>
     body{
-
-      font-family:  Ubuntu;
-
-    }
+    background:   #2e3830;
+    font-family:  Ubuntu;
+    color:white;
+  }
   </style>
 
 {% endblock %}
@@ -38,10 +38,11 @@
             {{ form|crispy }}
             <button type="submit" class="btn btn-success">LogIn</button>
         </form>
-
+        <hr>
       </div>
       <div class="col-sm-4  ">
       </div>
+
   </div>
 </div>
 {% endblock %}
