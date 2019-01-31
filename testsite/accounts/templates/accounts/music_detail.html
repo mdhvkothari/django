@@ -2,9 +2,12 @@
 {% load static %}
 
 {% block head %}
-<title>{{ detail_person.name }}</title>
-<<link rel="stylesheet" href="{% static 'accounts/detail.css' %}">
+<title>{{ tech_person.name }}</title>
+<link rel="stylesheet" href="{% static 'accounts/detail_music.css' %}">
 {% endblock %}
+
+
+
 
 
 {% block body %}
@@ -22,15 +25,15 @@
   </nav>
 
   <center><a href="/account/"<span class="glyphicon glyphicon-home"></span></a></center><br>
-    <center><img src="{{ detail_person.image.url }}" width="250" height="250"/></center>
+    <center><img src="{{ tech_person.image.url }}" width="250" height="250"/></center>
   <div class="container">
-    <center>  <h1>{{ detail_person.name }}</h1></center>
+    <center>  <h1>{{ music_person.name }}</h1></center>
     <h1>About -:</h1>
-      <h3>{{ detail_person.about }}</h3>
+      <h3>{{ music_person.about }}</h3>
       <br>
       <h1>Youtube Channel Link -:</h1>
       <h2>
-      <a href="{{ detail_person.link }}">{{ detail_person.link }}</a></h2>
+      <a href="{{ music_person.link }}">{{ music_person.link }}</a></h2>
       <br>
       <hr>
   </div>

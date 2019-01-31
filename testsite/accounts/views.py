@@ -14,6 +14,7 @@ def home(request):
     user_data = UserProfile.objects.all().order_by('id')[0:3]
     moti_data = motivational.objects.all().order_by('id')[0:3]
     tech_data = tech.objects.all().order_by('id')[0:3]
+    # music_data = music.objects.all().order_by('id')[0:3]
     return render(request,'accounts/home.html',{'user_data':user_data,'moti_data':moti_data,'tech_data':tech_data})
 
 # def register(request):
@@ -82,3 +83,10 @@ def moti_detail(request,slug):
 def tech_detail(request,slug):
     tech_person = tech.objects.get(id=slug)
     return render(request,'accounts/detail_tech.html',{'tech_person':tech_person})
+
+
+
+# @login_required(login_url='accounts:login')
+# def music_detail(request,slug):
+#     music_person = tech.objects.get(id=slug)
+#     return render(request,'accounts/music_detail.html',{'music_person':music_person})
