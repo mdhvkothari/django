@@ -26,7 +26,6 @@ class motivational(models.Model):
     about = models.TextField(max_length=100000,default='')
     link = models.CharField(max_length=500,default='')
     image = models.ImageField(blank=True)
-
     def __str__(self):
         return self.name
 
@@ -35,6 +34,19 @@ class motivational(models.Model):
 
 
 class tech(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=100,default='')
+    about = models.TextField(max_length=100000,default='')
+    link = models.CharField(max_length=500,default='')
+    image = models.ImageField(blank=True)
+    def __str__(self):
+        return self.name
+
+    def snippet(self):
+        return self.about[0:60]
+
+
+class music(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100,default='')
     about = models.TextField(max_length=100000,default='')
