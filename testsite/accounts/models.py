@@ -13,6 +13,7 @@ class UserProfile(models.Model):
     about = models.TextField(max_length=100000,default='')
     link = models.CharField(max_length=500,default='')
     image = models.ImageField(blank=True)
+    suscriber = models.CharField(max_length=10,default=None)
 
     def __str__(self):
         return self.name
@@ -26,6 +27,7 @@ class motivational(models.Model):
     about = models.TextField(max_length=100000,default='')
     link = models.CharField(max_length=500,default='')
     image = models.ImageField(blank=True)
+    suscriber = models.CharField(max_length=10,default=None)
     def __str__(self):
         return self.name
 
@@ -39,6 +41,7 @@ class tech(models.Model):
     about = models.TextField(max_length=100000,default='')
     link = models.CharField(max_length=500,default='')
     image = models.ImageField(blank=True)
+    suscriber = models.CharField(max_length=10,default=None)
     def __str__(self):
         return self.name
 
@@ -52,6 +55,7 @@ class music(models.Model):
     about = models.TextField(max_length=100000,default='')
     link = models.CharField(max_length=500,default='')
     image = models.ImageField(blank=True)
+    suscriber = models.CharField(max_length=10,default=None)
 
     def __str__(self):
         return self.name

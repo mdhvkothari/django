@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load static %}
 {% block head %}
-  <title>LogIn</title>
+  <title>About</title>
   <style>
     body{
-    background:   #2e3830;
-    font-family:  Ubuntu;
-    color:white;
-  }
-  </style>
+      background:   #2e3830;
+      font-family:  Ubuntu;
+      color: white;
+    }
 
+  </style>
 {% endblock %}
 
 
@@ -27,32 +27,27 @@
       <a class="navbar-brand">TubeWiki</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="#">About</a></li>
-      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/account/register">Register</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/account/login">logIn</a></li>
       </ul>
     </div>
   </div>
 </nav>
   <div class="row">
-      <div class="col-sm-4">
-      </div>
-      <div class="col-sm-4">
-        <center><h1>Welcome</h1>
-        <h3><p>You can log in here!!</p></h3>
-        <h2>Login</h2></center>
-        <form method="post" action="">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" class="btn btn-success">LogIn</button>
-        </form>
-        <hr>
-      </div>
-      <div class="col-sm-4  ">
-      </div>
-
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+      <center><h1>About</h1></center><hr>
+      <h2>In this website you will find India's top most YouTuber<br> in different different fields and contains detail each of them with<br> their YouTube channel's link and that's<br> why website name <br>is TubeWikki </h2>
+      <br>
+      <br>
+      <center><h4>Made with <span class="glyphicon glyphicon-heart"></span></h4></center>
+    </div>
+    <div class="col-sm-4">
+    </div>
   </div>
 </div>
 {% endblock %}

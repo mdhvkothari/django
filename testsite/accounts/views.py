@@ -3,10 +3,13 @@ from __future__ import unicode_literals
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .models import UserProfile,motivational,tech
-from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from forms import UserInfoForm
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import(
+    authenticate,
+    get_user_model,
+)
+from .forms import UserLoginForm,UserRegisterForm
 
 
 @login_required(login_url='accounts:login')
@@ -32,26 +35,33 @@ def home(request):
 #         args = {'form':form}
 #         return render(request,'accounts/reg_from.html',args)
 
+
+def login(request):
+    form = UserLoginForm(request.POST or None)
+    if form.is_valid():
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+        user = authenticate(username=username,password=password)
+        auth_login(request,user)
+        return redirect("/account")
+    return render(request,'accounts/login.html',{"form":form})
+
+
+
+
 def register(request):
+    form = UserRegisterForm(request.POST or None)
+    if form.is_valid():
+        user = form.save(commit=False)
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        user.set_password(password)
+        user.save()
+        new_user = authenticate(username=username,password=password)
+        auth_login(request,new_user)
+        return redirect("/account")
 
-    if request.method=='POST':
-
-        user_info = UserInfoForm(request.POST)
-
-        if user_info.is_valid() :
-
-            user = user_info.save(commit=False)
-            user.set_password(user.password)
-            user.is_active = False
-            user.save()
-            return render(request,'accounts/home.html')
-        else:
-            print(user_info.errors)
-    else:
-
-        user_info = UserInfoForm()
-
-    return render(request,'accounts/reg_from.html',{'form':user_info})
+    return render(request,'accounts/reg_from.html',{"form":form})
 
 
 # def signup(request):
