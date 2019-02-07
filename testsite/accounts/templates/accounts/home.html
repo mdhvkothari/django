@@ -85,5 +85,23 @@
           {% endfor %}
           <center><h4><a href="/allchannel/tech">SEE MORE</a></h4></center>
 
+          <h1>Music Club</h1><br>
+          {% for l in music_data %}
+
+            <div class="col-sm-4">
+            <div class="card">
+              <img class="card-img-top" src="{{ k.image.url }}" alt="Card image cap" width="150" height="150">
+              <div class="card-body">
+                <h2 class="card-title">{{ l.name }}</h2>
+                <p class="card-text">{{ l.snippet }}......</p>
+                <a href="{% url 'accounts:music' slug=l.id %}" class="btn btn-primary">Know More</a>
+                <hr>
+              </div>
+              </div>
+            </div>
+
+            {% endfor %}
+            <center><h4><a href="/allchannel/music">SEE MORE</a></h4></center>
+
 
 {% endblock %}

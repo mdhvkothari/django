@@ -6,5 +6,6 @@ urlpatterns =[
     url(r'^entertainment/$',views.detail),
     url(r'^motivational/$',views.moti),
     url(r'^tech/$',views.tech_person),
+    url(r'^music/$',views.music_person),
 
 ]
