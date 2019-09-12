@@ -5,7 +5,7 @@
   <style>
     body{
     background:   #2e3830;
-    font-family:  Ubuntu;
+    font-family: 'Ubuntu', sans-serif;
     color:white;
   }
   </style>
@@ -46,7 +46,9 @@
         <form method="post" action="">
             {% csrf_token %}
             {{ form|crispy }}
+            <center>
             <button type="submit" class="btn btn-success">LogIn</button>
+            </center>
         </form>
         <br>
         <br>
